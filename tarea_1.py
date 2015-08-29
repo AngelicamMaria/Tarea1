@@ -47,6 +47,7 @@ la tarea.
 __author__ = 'escribe_tu_nombre'
 
 import entornos
+
 # Requiere el modulo entornos.py
 # El modulo doscuartos.py puede ser de utilidad para reutilizar código
 # Agrega los modulos que requieras de python
