@@ -99,7 +99,7 @@ def simulador(entorno, agente, estado_inicial, pasos=10, verbose=True):
 
     if verbose:
         print "\n\nSimulacion de entorno tipo " + \ 
-              str(type(entorno)) + \ 
+              str(type(entorno6cuartos)) + \
               " con el agente tipo " + \ 
               str(type(agente)) + "\n"
 

@@ -11,9 +11,10 @@ Ejemplo de un entorno muy simple y agentes idem
 __author__ = 'juliowaissman'
 """
 Modificado para 6 cuartos en 2 pisos.
+By: Angelica
 """
 
-import entornos
+import entornos6cuartos
 from random import choice
 
 
@@ -52,14 +53,14 @@ class DosCuartos(entornos.Entorno):
         """
         En caso de la acciond e la derecha...
         """
-        if accion == 'Derecha' and robot =='A' or robot =='B' orrobot =='D' or robot =='E':
+        if accion == 'Derecha' and robot =='A' or robot =='B' or robot =='D' or robot =='E':
             if robot=='A':
                 return ('B', A, B,C,D,E,F)
-             if robot=='B':
+            if robot=='B':
                 return ('C', A, B,C,D,E,F)
-             if robot=='D':
+            if robot=='D':
                 return ('E', A, B,C,D,E,F)
-             if robot=='E':
+            if robot=='E':
                 return ('F', A, B,C,D,E,F)
         """
         En caso de la accion de la izquierda...
@@ -67,11 +68,11 @@ class DosCuartos(entornos.Entorno):
         if accion == 'Izquierda' and robot =='C' or robot =='B' or robot =='F' or robot =='E':
             if robot=='E':
                 return ('D', A, B,C,D,E,F)
-             if robot=='F':
+            if robot=='F':
                 return ('E', A, B,C,D,E,F)
-             if robot=='B':
+            if robot=='B':
                 return ('A', A, B,C,D,E,F)
-             if robot=='C':
+            if robot=='C':
                 return ('B', A, B,C,D,E,F)
         """
         En caso de la accion Subir..
@@ -79,7 +80,7 @@ class DosCuartos(entornos.Entorno):
         if accion == 'Subir' and robot =='C' or robot =='A':
             if robot=='C':
                 return ('F', A, B,C,D,E,F)
-             if robot=='A':
+            if robot=='A':
                 return ('D', A, B,C,D,E,F)
         """
         En caso de la accion Bajar..
@@ -87,7 +88,7 @@ class DosCuartos(entornos.Entorno):
         if accion == 'Bajar' and robot =='D' or robot =='F':
             if robot=='D':
                 return ('A', A, B,C,D,E,F)
-             if robot=='F':
+            if robot=='F':
                 return ('C', A, B,C,D,E,F)
         """
         En caso de la accion Limpiar
