@@ -49,11 +49,64 @@ class DosCuartos(entornos.Entorno):
             raise ValueError("La accion no es legal para este estado")
 
         robot, A, B,C,D,E,F = estado
-
-        if accion == 'Derecha' and robot =='A':
-
-
-
+        """
+        En caso de la acciond e la derecha...
+        """
+        if accion == 'Derecha' and robot =='A' or robot =='B' orrobot =='D' or robot =='E':
+            if robot=='A':
+                return ('B', A, B,C,D,E,F)
+             if robot=='B':
+                return ('C', A, B,C,D,E,F)
+             if robot=='D':
+                return ('E', A, B,C,D,E,F)
+             if robot=='E':
+                return ('F', A, B,C,D,E,F)
+        """
+        En caso de la accion de la izquierda...
+        """
+        if accion == 'Izquierda' and robot =='C' or robot =='B' or robot =='F' or robot =='E':
+            if robot=='E':
+                return ('D', A, B,C,D,E,F)
+             if robot=='F':
+                return ('E', A, B,C,D,E,F)
+             if robot=='B':
+                return ('A', A, B,C,D,E,F)
+             if robot=='C':
+                return ('B', A, B,C,D,E,F)
+        """
+        En caso de la accion Subir..
+        """
+        if accion == 'Subir' and robot =='C' or robot =='A':
+            if robot=='C':
+                return ('F', A, B,C,D,E,F)
+             if robot=='A':
+                return ('D', A, B,C,D,E,F)
+        """
+        En caso de la accion Bajar..
+        """
+        if accion == 'Bajar' and robot =='D' or robot =='F':
+            if robot=='D':
+                return ('A', A, B,C,D,E,F)
+             if robot=='F':
+                return ('C', A, B,C,D,E,F)
+        """
+        En caso de la accion Limpiar
+        """
+        if accion == 'limpiar':
+            if robot =='A':
+                return ('A','limpio',B,C,D,E,F)
+            if robot =='B':
+                return ('B',A,'limpio',C,D,E,F)
+            if robot =='C':
+                return ('C',A,B,'limpio',D,E,F)
+            if robot =='D':
+                return ('D',A,B,C,'limpio',E,F)
+            if robot =='E':
+                return ('E',A,B,C,D,'limpio',F)
+            if robot =='F':
+                return ('F',A,B,C,D,E,'limpio')
+        if accion=='noOp':
+            return(robot,A,B,C,D,E,F)
 
 
         """
@@ -96,8 +149,10 @@ class AgenteReactivoDoscuartos(entornos.Agente):
     def programa(self, percepcion):
         robot, situacion = percepcion
         return ('limpiar' if situacion == 'sucio' else
-                'irA' if robot == 'B' else
-                'irB')
+               'Derecha' if robot == 'B' or robot == 'A' or robot == 'D' or robot == 'E' else
+                'Izquierda' if robot == 'B' or robot == 'C' or robot == 'E' or robot == 'F' else
+                'Subir' if robot =='A' or robot =='C' else
+                'Bajar' if robot =='D' or robot =='E')
 
 
 class AgenteReactivoModeloDosCuartos(entornos.Agente):
