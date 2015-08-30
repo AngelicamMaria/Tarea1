@@ -152,7 +152,9 @@ class AgenteReactivoDoscuartos(entornos.Agente):
                'Derecha' if robot == 'B' or robot == 'A' or robot == 'D' or robot == 'E' else
                 'Izquierda' if robot == 'B' or robot == 'C' or robot == 'E' or robot == 'F' else
                 'Subir' if robot =='A' or robot =='C' else
-                'Bajar' if robot =='D' or robot =='E')
+                'Bajar' if robot =='D' or robot =='E' else
+                'noOp'
+                )
 
 
 class AgenteReactivoModeloDosCuartos(entornos.Agente):
@@ -179,10 +181,12 @@ class AgenteReactivoModeloDosCuartos(entornos.Agente):
         A, B ,C, D, E, F= self.modelo[1], self.modelo[2], self.modelo[1], self.modelo[2], self.modelo[1], self.modelo[2]
         return ('noOp' if A == B ==C == D ==E == F == 'limpio' else
                 'limpiar' if situacion == 'sucio' else
-                'Derecha' if robot == 'B' or robot == 'A' robot == 'D' or robot == 'E' else
-                'Izquierda' if robot == 'B' or robot == 'C' robot == 'E' or robot == 'F' else
+                'Derecha' if robot == 'B' or robot == 'A' or robot == 'D' or robot == 'E' else
+                'Izquierda' if robot == 'B' or robot == 'C' or robot == 'E' or robot == 'F' else
                 'Subir' if robot =='A' or robot =='C' else
-                'Bajar' if robot =='D' or robot =='E')
+                'Bajar' if robot =='D' or robot =='E' else
+                'noOp'
+                )
 
 
 def test():
